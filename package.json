@@ -1,0 +1,49 @@
+{
+  "name": "badrdaawa",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "prisma generate",
+    "dev": "NEXT_TEST_WASM_DIR=node_modules/@next/swc-wasm-nodejs next dev",
+    "prebuild": "prisma generate",
+    "build": "NEXT_TEST_WASM_DIR=node_modules/@next/swc-wasm-nodejs next build",
+    "build:native": "next build",
+    "prestart": "node scripts/prepare-production.mjs",
+    "start": "NEXT_TEST_WASM_DIR=node_modules/@next/swc-wasm-nodejs next start",
+    "check": "tsc --noEmit",
+    "generate:assets": "node scripts/generate-assets.mjs",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
+    "db:studio": "prisma studio",
+    "backup": "node scripts/backup.mjs"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "clsx": "^2.1.1",
+    "heic-convert": "^2.1.0",
+    "iconv-lite": "^0.7.2",
+    "lucide-react": "^0.453.0",
+    "next": "^15.5.6",
+    "pdfkit": "^0.15.2",
+    "qrcode": "^1.5.4",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "sharp": "^0.34.5",
+    "xlsx": "^0.18.5",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@next/swc-wasm-nodejs": "15.5.19",
+    "@types/node": "^24.7.0",
+    "@types/pdfkit": "^0.13.9",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "pngjs": "^7.0.0",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.1",
+    "typescript": "5.9.3"
+  },
+  "packageManager": "pnpm@10.15.1"
+}
