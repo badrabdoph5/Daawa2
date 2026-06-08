@@ -1,0 +1,16 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1200" fill="#080706"/>
+  <circle cx="450" cy="50" r="420" fill="#D7A84D" opacity=".13"/>
+  <circle cx="760" cy="1030" r="360" fill="#8A621F" opacity=".18"/>
+  <rect x="86" y="118" width="728" height="964" rx="44" fill="#15120F" stroke="#D7A84D" stroke-opacity=".42" stroke-width="2"/>
+  <rect x="130" y="170" width="640" height="430" rx="30" fill="#0E0C0A" stroke="white" stroke-opacity=".08"/>
+  <path d="M181 520C274 367 373 312 479 354C582 395 636 308 722 218" stroke="#D7A84D" stroke-opacity=".55" stroke-width="8" stroke-linecap="round"/>
+  <text x="450" y="304" text-anchor="middle" fill="#D7A84D" font-family="Georgia, serif" font-size="42" letter-spacing="10">LUXE NOIR</text>
+  <text x="450" y="407" text-anchor="middle" fill="#FFF6DF" font-family="Georgia, serif" font-size="94" font-weight="700">Badr &amp; Sara</text>
+  <text x="450" y="488" text-anchor="middle" fill="#BCA56E" font-family="Arial, sans-serif" font-size="34">26 October 2026</text>
+  <rect x="130" y="648" width="190" height="260" rx="24" fill="#2A241B"/>
+  <rect x="354" y="648" width="190" height="260" rx="24" fill="#CDA14B"/>
+  <rect x="578" y="648" width="190" height="260" rx="24" fill="#2A241B"/>
+  <rect x="160" y="956" width="580" height="66" rx="33" fill="#D7A84D"/>
+  <text x="450" y="1001" text-anchor="middle" fill="#120E08" font-family="Arial, sans-serif" font-size="28" font-weight="700">Royal dark invitation</text>
+</svg>

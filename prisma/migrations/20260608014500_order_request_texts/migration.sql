@@ -1,0 +1,1 @@
+ALTER TABLE "OrderRequest" ADD COLUMN IF NOT EXISTS "texts" JSONB;

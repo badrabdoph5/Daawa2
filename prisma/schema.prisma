@@ -1,0 +1,223 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum InvitationStatus {
+  DRAFT
+  ACTIVE
+  PAUSED
+  ARCHIVED
+}
+
+enum OrderStatus {
+  NEW
+  REVIEWING
+  EDITED
+  PUBLISHED
+  ACCEPTED
+  REJECTED
+  CONVERTED
+}
+
+enum RsvpStatus {
+  CONFIRMED
+  DECLINED
+}
+
+enum BackupStatus {
+  QUEUED
+  RUNNING
+  SUCCESS
+  FAILED
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  role         String   @default("OWNER")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Customer {
+  id           String       @id @default(cuid())
+  name         String
+  phone        String
+  email        String?
+  username     String       @unique
+  passwordHash String
+  isActive     Boolean      @default(true)
+  invitations  Invitation[]
+  orders       OrderRequest[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  @@index([phone])
+  @@index([createdAt])
+}
+
+model WeddingTemplate {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  name        String
+  arabicName  String
+  category    String
+  style       String
+  concept     String
+  opening     String
+  layout      String
+  typography  String
+  palette     Json
+  previewUrl  String
+  enabled     Boolean      @default(true)
+  sortOrder   Int          @default(0)
+  invitations Invitation[]
+  orders      OrderRequest[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([enabled, sortOrder])
+  @@index([style])
+}
+
+model Invitation {
+  id          String            @id @default(cuid())
+  code        String            @unique
+  status      InvitationStatus  @default(DRAFT)
+  language    String            @default("ar")
+  groomName   String
+  brideName   String
+  weddingDate DateTime
+  weddingTime String
+  venue       String
+  city        String?
+  mapUrl      String?
+  heroPhoto   String?
+  gallery     Json              @default("[]")
+  musicUrl    String?
+  musicEnabled Boolean          @default(false)
+  texts       Json?
+  photographer Json?
+  qrCodeUrl   String?
+  viewCount   Int               @default(0)
+  customerId  String
+  customer    Customer          @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  templateId  String
+  template    WeddingTemplate   @relation(fields: [templateId], references: [id])
+  guests      GuestRsvp[]
+  events      AnalyticsEvent[]
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([status, weddingDate])
+  @@index([customerId, createdAt])
+  @@index([templateId])
+}
+
+model GuestRsvp {
+  id             String     @id @default(cuid())
+  invitationId   String
+  invitation     Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+  name           String
+  phone          String
+  attendees      Int        @default(1)
+  status         RsvpStatus
+  note           String?
+  ipHash         String?
+  userAgent      String?
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  @@index([invitationId, createdAt])
+  @@index([invitationId, status])
+  @@index([phone])
+}
+
+model OrderRequest {
+  id          String          @id @default(cuid())
+  orderNumber String?         @unique
+  dedupeKey   String?         @unique
+  groomName   String
+  brideName   String
+  phone       String
+  weddingDate DateTime
+  venue       String
+  mapUrl      String?
+  notes       String?
+  imageUrls   Json            @default("[]")
+  musicEnabled Boolean         @default(false)
+  musicChoice  String?
+  musicUrl     String?
+  texts       Json?
+  photographer Json?
+  rejectionReason String?
+  publishedInvitationCode String?
+  language    String          @default("ar")
+  status      OrderStatus     @default(NEW)
+  submittedAt DateTime        @default(now())
+  templateId  String?
+  template    WeddingTemplate? @relation(fields: [templateId], references: [id])
+  customerId  String?
+  customer    Customer?       @relation(fields: [customerId], references: [id])
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([status, createdAt])
+  @@index([phone])
+  @@index([submittedAt])
+}
+
+model AnalyticsEvent {
+  id           String     @id @default(cuid())
+  invitationId String
+  invitation   Invitation @relation(fields: [invitationId], references: [id], onDelete: Cascade)
+  eventType    String
+  metadata     Json?
+  ipHash       String?
+  createdAt    DateTime   @default(now())
+
+  @@index([invitationId, eventType, createdAt])
+  @@index([createdAt])
+}
+
+model BackupJob {
+  id          String       @id @default(cuid())
+  type        String
+  status      BackupStatus @default(QUEUED)
+  fileName    String?
+  githubSha   String?
+  sizeBytes   BigInt?
+  startedAt   DateTime?
+  finishedAt  DateTime?
+  error       String?
+  createdAt   DateTime     @default(now())
+
+  @@index([type, createdAt])
+  @@index([status])
+}
+
+model SyncLog {
+  id           String    @id @default(cuid())
+  timestamp    DateTime  @default(now())
+  reason       String
+  status       String
+  filesCount   Int?
+  commitSha    String?
+  commitUrl    String?
+  errorMessage String?
+  duration     Int?
+  retryCount   Int       @default(0)
+  nextRetryAt  DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([status, createdAt])
+  @@index([createdAt])
+}
