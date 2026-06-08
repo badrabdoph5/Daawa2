@@ -1,0 +1,144 @@
+{
+  "hero": {
+    "kicker": "Forever Begins Here",
+    "mainTitle": "ودّع الدعوات التقليدية",
+    "accentTitle": "الجيل الجديد من دعوات الزفاف بدأ هنا",
+    "description": "قدّم نفسك وشريكة حياتك بطريقة مميزة قبل الحفل",
+    "primaryCta": "ابدأ إنشاء دعوتك",
+    "secondaryCta": "شاهد التصاميم المختلفة"
+  },
+  "features": {
+    "title": "مميزات دعوتك الرقمية",
+    "points": [
+      {
+        "id": "rsvp-open",
+        "text": "تأكيد حضور الضيوف إلكترونيًا"
+      },
+      {
+        "id": "guest-records",
+        "text": "كشف كامل بأسماء وأرقام المسجلين للحضور"
+      },
+      {
+        "id": "client-admin",
+        "text": "لوحة تحكم خاصة بك"
+      },
+      {
+        "id": "reminder",
+        "text": "إرسال تذكير تلقائي بموعد الزفاف"
+      },
+      {
+        "id": "music",
+        "text": "إضافة أغاني أو موسيقى تشتغل تلقائي عند فتح الدعوة"
+      },
+      {
+        "id": "anytime-edit",
+        "text": "تعديل الدعوة بسهولة في أي وقت"
+      },
+      {
+        "id": "self-create",
+        "text": "صمّم دعوتك بنفسك"
+      },
+      {
+        "id": "support",
+        "text": "دعم فني متواصل"
+      },
+      {
+        "id": "send-message",
+        "text": "إرسال رسائل جماعية للمعازيم"
+      },
+      {
+        "id": "free-edit",
+        "text": "تعديل الدعوة بسهولة في أي وقت"
+      },
+      {
+        "id": "poll",
+        "text": "معرفة عدد الحضور المتوقع"
+      },
+      {
+        "id": "private-link",
+        "text": "رابط دعوة خاص بك ولوحة متابعة مباشرة"
+      },
+      {
+        "id": "tracking",
+        "text": "متابعة زيارات الدعوة وإحصائياتها لحظة بلحظة"
+      }
+    ]
+  },
+  "preview": {
+    "eyebrow": "اختر استايلك ✨",
+    "title": "كل دعوة ليها شكل يحكي فرحتك",
+    "badge": "معاينة",
+    "fullInviteCta": "معاينة الدعوة كاملة",
+    "orderCta": "اختر هذا التصميم"
+  },
+  "pricing": {
+    "eyebrow": "الباقات",
+    "title": "اختر الباقة المناسبة لك",
+    "invitationPlanName": "الباقة الأساسية",
+    "invitationPrice": "100 ج",
+    "plusPlanName": "الباقة المميزة",
+    "plusPrice": "300 ج",
+    "rows": [
+      {
+        "id": "reminder",
+        "feature": "إرسال تذكير تلقائي بموعد الزفاف",
+        "invitation": false,
+        "plus": true
+      },
+      {
+        "id": "music",
+        "feature": "إضافة أغاني أو موسيقى من اختيارك تشتغل تلقائي عند فتح الدعوة",
+        "invitation": false,
+        "plus": true
+      },
+      {
+        "id": "anytime-edit",
+        "feature": "تعديل الدعوة بسهولة في أي وقت",
+        "invitation": false,
+        "plus": true
+      },
+      {
+        "id": "main-page",
+        "feature": "صفحة الدعوة الأساسية",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "choose-design",
+        "feature": "اختيار التصميم",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "comments",
+        "feature": "دفتر تهاني الضيوف",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "rsvp-open",
+        "feature": "تأكيد حضور الضيوف إلكترونيًا",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "client-admin",
+        "feature": "لوحة تحكم خاصة بك",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "guest-records",
+        "feature": "كشف كامل بأسماء وأرقام المسجلين للحضور",
+        "invitation": true,
+        "plus": true
+      },
+      {
+        "id": "support",
+        "feature": "الدعم الفني",
+        "invitation": true,
+        "plus": true
+      }
+    ]
+  }
+}

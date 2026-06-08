@@ -1,0 +1,13 @@
+{
+  "slots": [
+    {
+      "id": "global-track",
+      "name": "الموسيقى العامة",
+      "url": "/uploads/music/music-1780789271956-8fdca446.mp3",
+      "enabled": true,
+      "applyToAll": true,
+      "templateSlugs": [],
+      "updatedAt": "2026-06-06T23:41:36.175Z"
+    }
+  ]
+}

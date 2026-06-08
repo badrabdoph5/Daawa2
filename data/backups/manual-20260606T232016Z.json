@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "type": "manual",
+  "createdAt": "2026-06-06T23:20:16.692Z",
+  "source": "files",
+  "app": "BadrDaawa",
+  "database": null,
+  "dataFiles": {},
+  "uploads": [
+    {
+      "path": "order-requests/order-1780754656929-3115c2a1.jpg",
+      "sizeBytes": 22,
+      "modifiedAt": "2026-06-06T23:05:05.423Z",
+      "base64": "/9j/4AAQSkZJRgABAQAAAQABAAD/2w=="
+    }
+  ]
+}
